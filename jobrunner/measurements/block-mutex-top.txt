@@ -1,0 +1,52 @@
+File: runner.test.exe
+Build ID: C:\Users\user\AppData\Local\Packages\sandbox.{6e02356c-f83e-47fb-9761-8874b4fa4fcb}\AC\Temp\go-build515121953\b001\runner.test.exe2026-10-09 12:19:27.239596 +0900 JST
+Type: delay
+Time: 2026-10-09 12:19:27 JST
+Showing nodes accounting for 1685.89ms, 100% of 1686.48ms total
+Dropped 7 nodes (cum <= 8.43ms)
+      flat  flat%   sum%        cum   cum%
+ 1333.15ms 79.05% 79.05%  1333.15ms 79.05%  runtime.selectgo
+  284.37ms 16.86% 95.91%   284.37ms 16.86%  runtime.chanrecv1
+   68.37ms  4.05%   100%    68.37ms  4.05%  sync.(*WaitGroup).Wait
+         0     0%   100%   281.67ms 16.70%  example.com/jobrunner/internal/runner.BenchmarkWaitingBatch
+         0     0%   100%  1119.85ms 66.40%  example.com/jobrunner/internal/runner.BenchmarkWaitingBatch.func1
+         0     0%   100%  1119.85ms 66.40%  example.com/jobrunner/internal/runner.JobFunc.Run
+         0     0%   100%   281.67ms 16.70%  example.com/jobrunner/internal/runner.Run (inline)
+         0     0%   100%   281.67ms 16.70%  example.com/jobrunner/internal/runner.RunWithOptions
+         0     0%   100%  1120.44ms 66.44%  example.com/jobrunner/internal/runner.RunWithOptions.func1
+         0     0%   100%  1119.85ms 66.40%  example.com/jobrunner/internal/runner.executeJob
+         0     0%   100%  1119.85ms 66.40%  example.com/jobrunner/internal/runner.wait
+         0     0%   100%   284.37ms 16.86%  main.main
+         0     0%   100%   284.37ms 16.86%  runtime.main
+         0     0%   100%   284.35ms 16.86%  testing.(*B).Run
+         0     0%   100%   284.35ms 16.86%  testing.(*B).run1
+         0     0%   100%   281.67ms 16.70%  testing.(*B).run1.func1
+         0     0%   100%   566.04ms 33.56%  testing.(*B).runN
+         0     0%   100%   284.37ms 16.86%  testing.(*M).Run
+         0     0%   100%   284.37ms 16.86%  testing.runBenchmarks
+         0     0%   100%   284.35ms 16.86%  testing.runBenchmarks.func1
+File: runner.test.exe
+Build ID: C:\Users\user\AppData\Local\Packages\sandbox.{6e02356c-f83e-47fb-9761-8874b4fa4fcb}\AC\Temp\go-build515121953\b001\runner.test.exe2026-10-09 12:19:27.239596 +0900 JST
+Type: delay
+Time: 2026-10-09 12:19:27 JST
+Showing nodes accounting for 65.17us, 100% of 65.17us total
+Dropped 1 node (cum <= 0.33us)
+      flat  flat%   sum%        cum   cum%
+   65.17us   100%   100%    65.17us   100%  runtime.unlock (inline)
+         0     0%   100%     4.83us  7.42%  runtime.chanparkcommit
+         0     0%   100%    51.59us 79.17%  runtime.forEachP (inline)
+         0     0%   100%    51.59us 79.17%  runtime.forEachP.func1
+         0     0%   100%    51.59us 79.17%  runtime.forEachPInternal
+         0     0%   100%    60.09us 92.21%  runtime.gcBgMarkWorker
+         0     0%   100%     8.50us 13.04%  runtime.gcBgMarkWorker.func2
+         0     0%   100%     8.50us 13.04%  runtime.gcDrain
+         0     0%   100%     8.50us 13.04%  runtime.gcDrainMarkWorkerDedicated (inline)
+         0     0%   100%    51.59us 79.17%  runtime.gcMarkDone
+         0     0%   100%    51.59us 79.17%  runtime.gcMarkTermination
+         0     0%   100%     8.50us 13.04%  runtime.markroot
+         0     0%   100%     8.50us 13.04%  runtime.markroot.func1
+         0     0%   100%     5.08us  7.79%  runtime.mcall
+         0     0%   100%     5.08us  7.79%  runtime.park_m
+         0     0%   100%     8.50us 13.04%  runtime.preemptM
+         0     0%   100%     8.50us 13.04%  runtime.suspendG
+         0     0%   100%    60.09us 92.21%  runtime.systemstack

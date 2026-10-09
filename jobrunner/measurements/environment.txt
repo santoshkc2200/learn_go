@@ -1,0 +1,24 @@
+Collected 2026-10-09 (Asia/Tokyo).
+go version go1.27.0 windows/amd64
+GOOS=windows
+GOARCH=amd64
+CGO_ENABLED=0
+Benchmark-reported CPU: 12th Gen Intel(R) Core(TM) i7-12700F
+Benchmark suffix: -20 (GOMAXPROCS, not configured worker count)
+System CIM processor query was unavailable; CPU label comes from go test.
+
+Unprofiled command:
+go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$' -benchmem -benchtime=100ms -count=3
+
+Instrumented CPU/heap command:
+go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$/^cpu$/^workers_4$' -benchtime=500ms -cpuprofile measurements/cpu.pprof -memprofile measurements/heap.pprof
+
+Instrumented waiting command:
+go test ./internal/runner -run '^$' -bench '^BenchmarkWaitingBatch$' -benchtime=250ms -blockprofile measurements/block.pprof -blockprofilerate 1 -mutexprofile measurements/mutex.pprof -mutexprofilefraction 1
+
+Trace: go test ./internal/runner -run TestDiagnosticWorkload -trace measurements/trace.out
+Goroutines: go test ./internal/runner -run TestGoroutineSnapshot -args -goroutineprofile C:/Users/user/personal/dev/go/jobrunner/measurements/goroutine.txt
+
+Short samples are exploratory. Process/tool output can be delayed; timing batches
+were not isolated from all other host activity. No statistical speedup or production
+capacity claim follows from these measurements.

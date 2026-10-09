@@ -1,0 +1,65 @@
+goroutine 7 [running]:
+runtime/pprof.writeGoroutineStacks({0x7ff727ea49c0, 0x2bab60a22000})
+	C:/Program Files/Go/src/runtime/pprof/pprof.go:816 +0x69
+runtime/pprof.writeGoroutine({0x7ff727ea49c0?, 0x2bab60a22000?}, 0x7ff727a59ad5?)
+	C:/Program Files/Go/src/runtime/pprof/pprof.go:779 +0x25
+runtime/pprof.(*Profile).WriteTo(0x7ff727c733d8?, {0x7ff727ea49c0?, 0x2bab60a22000?}, 0x7ff727a9a47a?)
+	C:/Program Files/Go/src/runtime/pprof/pprof.go:405 +0x149
+example.com/jobrunner/internal/runner.TestGoroutineSnapshot(0x2bab608f0400)
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/diagnostics_test.go:73 +0x1c5
+testing.tRunner(0x2bab608f0400, 0x7ff727ea6998)
+	C:/Program Files/Go/src/testing/testing.go:2193 +0xc3
+created by testing.(*T).Run in goroutine 1
+	C:/Program Files/Go/src/testing/testing.go:2258 +0x4b4
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0x2bab608f0200, {0x7ff727c7820c?, 0x2bab60923aa8?}, 0x7ff727ea6998)
+	C:/Program Files/Go/src/testing/testing.go:2266 +0x4d2
+testing.runTests.func1(0x2bab608f0200)
+	C:/Program Files/Go/src/testing/testing.go:2742 +0x37
+testing.tRunner(0x2bab608f0200, 0x2bab60923bc8)
+	C:/Program Files/Go/src/testing/testing.go:2193 +0xc3
+testing.runTests({0x7ff727c78260, 0x15}, {0x7ff727c7f67b, 0x25}, 0x2bab608f8138, {0x7ff727ecaca8, 0x1d, 0x1d}, {0xc2aa35c7d7f1ca90, 0x8bb2c97001, ...})
+	C:/Program Files/Go/src/testing/testing.go:2740 +0x505
+testing.(*M).Run(0x2bab6092a1e0)
+	C:/Program Files/Go/src/testing/testing.go:2600 +0x6af
+main.main()
+	_testmain.go:112 +0x9b
+
+goroutine 8 [sync.WaitGroup.Wait]:
+sync.runtime_SemacquireWaitGroup(0x2bab60991e84?, 0x2?)
+	C:/Program Files/Go/src/runtime/sema.go:114 +0x2e
+sync.(*WaitGroup).Wait(0x2bab60a10000)
+	C:/Program Files/Go/src/sync/waitgroup.go:206 +0x85
+example.com/jobrunner/internal/runner.RunWithOptions({0x7ff727ea6258, 0x2bab609c4190}, 0x2, {0x2bab60a0a000, 0x2, 0x2}, {0x0, {0x0, 0x0, 0x0, ...}, ...})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:99 +0x4f2
+example.com/jobrunner/internal/runner.Run(...)
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:40
+example.com/jobrunner/internal/runner.TestGoroutineSnapshot.func2()
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/diagnostics_test.go:67 +0xc8
+created by example.com/jobrunner/internal/runner.TestGoroutineSnapshot in goroutine 7
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/diagnostics_test.go:67 +0x148
+
+goroutine 18 [chan receive]:
+example.com/jobrunner/internal/runner.TestGoroutineSnapshot.func1({0x7ff727ea6258, 0x2bab609c4190})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/diagnostics_test.go:65 +0x3f
+example.com/jobrunner/internal/runner.JobFunc.Run(0x9000000000000?, {0x7ff727ea6258?, 0x2bab609c4190?})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:20 +0x26
+example.com/jobrunner/internal/runner.executeJob({0x7ff727ea6258?, 0x2bab609c4190?}, {0x7ff727ea4980, 0x2bab6091e3b0}, {0x0, {0x0, 0x0, 0x0, 0x0, 0x0}, ...})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/options.go:63 +0x19f
+example.com/jobrunner/internal/runner.RunWithOptions.func1()
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:76 +0x185
+created by example.com/jobrunner/internal/runner.RunWithOptions in goroutine 8
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:68 +0x2b5
+
+goroutine 19 [chan receive]:
+example.com/jobrunner/internal/runner.TestGoroutineSnapshot.func1({0x7ff727ea6258, 0x2bab609c4190})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/diagnostics_test.go:65 +0x3f
+example.com/jobrunner/internal/runner.JobFunc.Run(0x0?, {0x7ff727ea6258?, 0x2bab609c4190?})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:20 +0x26
+example.com/jobrunner/internal/runner.executeJob({0x7ff727ea6258?, 0x2bab609c4190?}, {0x7ff727ea4980, 0x2bab6091e3b0}, {0x0, {0x0, 0x0, 0x0, 0x0, 0x0}, ...})
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/options.go:63 +0x19f
+example.com/jobrunner/internal/runner.RunWithOptions.func1()
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:76 +0x185
+created by example.com/jobrunner/internal/runner.RunWithOptions in goroutine 8
+	C:/Users/user/personal/dev/go/jobrunner/internal/runner/runner.go:68 +0x2b5

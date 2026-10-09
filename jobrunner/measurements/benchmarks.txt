@@ -1,0 +1,30 @@
+goos: windows
+goarch: amd64
+pkg: example.com/jobrunner/internal/runner
+cpu: 12th Gen Intel(R) Core(TM) i7-12700F
+BenchmarkBatch/noop/workers_1-20 4700 23579 ns/op 2964 B/op 4 allocs/op
+BenchmarkBatch/noop/workers_1-20 5385 22571 ns/op 2962 B/op 4 allocs/op
+BenchmarkBatch/noop/workers_1-20 5433 22823 ns/op 2961 B/op 4 allocs/op
+BenchmarkBatch/noop/workers_2-20 5491 23228 ns/op 3117 B/op 5 allocs/op
+BenchmarkBatch/noop/workers_2-20 5127 22820 ns/op 3109 B/op 5 allocs/op
+BenchmarkBatch/noop/workers_2-20 5208 23009 ns/op 3114 B/op 5 allocs/op
+BenchmarkBatch/noop/workers_4-20 4387 26985 ns/op 3408 B/op 7 allocs/op
+BenchmarkBatch/noop/workers_4-20 4668 26298 ns/op 3397 B/op 7 allocs/op
+BenchmarkBatch/noop/workers_4-20 4880 26258 ns/op 3399 B/op 7 allocs/op
+BenchmarkBatch/cpu/workers_1-20 630 192118 ns/op 2960 B/op 4 allocs/op
+BenchmarkBatch/cpu/workers_1-20 636 195460 ns/op 2960 B/op 4 allocs/op
+BenchmarkBatch/cpu/workers_1-20 607 200438 ns/op 2960 B/op 4 allocs/op
+BenchmarkBatch/cpu/workers_2-20 999 120404 ns/op 3104 B/op 5 allocs/op
+BenchmarkBatch/cpu/workers_2-20 1010 119139 ns/op 3105 B/op 5 allocs/op
+BenchmarkBatch/cpu/workers_2-20 1041 116456 ns/op 3108 B/op 5 allocs/op
+BenchmarkBatch/cpu/workers_4-20 1380 84584 ns/op 3402 B/op 7 allocs/op
+BenchmarkBatch/cpu/workers_4-20 1429 87416 ns/op 3396 B/op 7 allocs/op
+BenchmarkBatch/cpu/workers_4-20 1435 83924 ns/op 3393 B/op 7 allocs/op
+PASS
+ok example.com/jobrunner/internal/runner 2.302s
+
+Separate instrumented runs, NOT comparison samples:
+BenchmarkBatch/cpu/workers_4-20 6776 84067 ns/op 3433 B/op 7 allocs/op
+BenchmarkWaitingBatch-20 48 5898692 ns/op 5749 B/op 56 allocs/op
+
+Formatting normalized from tool output; numeric values preserved.

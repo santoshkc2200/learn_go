@@ -1,0 +1,13 @@
+File: streamgrep.test.exe
+Build ID: C:\Users\user\AppData\Local\Packages\sandbox.{ae380381-b0ad-46d5-a294-2524980f0cc3}\AC\Temp\go-build1984107698\b001\streamgrep.test.exe2026-10-09 11:18:50.3810525 +0900 JST
+Type: alloc_space
+Time: 2026-10-09 11:18:51 JST
+Showing nodes accounting for 922.60MB, 99.73% of 925.11MB total
+Dropped 28 nodes (cum <= 4.63MB)
+      flat  flat%   sum%        cum   cum%
+  906.54MB 97.99% 97.99%   906.54MB 97.99%  bytes.NewReader (inline)
+   16.06MB  1.74% 99.73%    16.06MB  1.74%  bufio.NewReaderSize (inline)
+         0     0% 99.73%   922.60MB 99.73%  example.com/streamgrep.BenchmarkFilterLines.func1
+         0     0% 99.73%   922.60MB 99.73%  example.com/streamgrep.filterLines
+         0     0% 99.73%   923.10MB 99.78%  testing.(*B).run1.func1
+         0     0% 99.73%   923.10MB 99.78%  testing.(*B).runN

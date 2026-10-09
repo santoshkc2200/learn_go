@@ -1,0 +1,7 @@
+goos: windows
+goarch: amd64
+pkg: example.com/streamgrep
+cpu: 12th Gen Intel(R) Core(TM) i7-12700F
+BenchmarkFilterLines/short_1MiB_half-20         	    4658	    245594 ns/op	4269.55 MB/s	  200833 B/op	    4098 allocs/op
+PASS
+ok  	example.com/streamgrep	1.253s

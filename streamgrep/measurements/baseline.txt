@@ -1,0 +1,36 @@
+goos: windows
+goarch: amd64
+pkg: example.com/streamgrep
+cpu: 12th Gen Intel(R) Core(TM) i7-12700F
+BenchmarkFilterLines/short_4KiB_all-20         	   57396	      1830 ns/op	2238.39 MB/s	    5760 B/op	      34 allocs/op
+BenchmarkFilterLines/short_4KiB_all-20         	   72660	      1729 ns/op	2368.97 MB/s	    5760 B/op	      34 allocs/op
+BenchmarkFilterLines/short_4KiB_all-20         	   69418	      1910 ns/op	2144.68 MB/s	    5760 B/op	      34 allocs/op
+BenchmarkFilterLines/short_4KiB_half-20        	   75474	      1604 ns/op	2554.06 MB/s	    4992 B/op	      18 allocs/op
+BenchmarkFilterLines/short_4KiB_half-20        	   70570	      1568 ns/op	2611.78 MB/s	    4992 B/op	      18 allocs/op
+BenchmarkFilterLines/short_4KiB_half-20        	   81205	      1493 ns/op	2744.08 MB/s	    4992 B/op	      18 allocs/op
+BenchmarkFilterLines/short_4KiB_none-20        	   99884	      1223 ns/op	3348.10 MB/s	    4224 B/op	       2 allocs/op
+BenchmarkFilterLines/short_4KiB_none-20        	   86834	      1236 ns/op	3313.16 MB/s	    4224 B/op	       2 allocs/op
+BenchmarkFilterLines/short_4KiB_none-20        	  100209	      2042 ns/op	2005.43 MB/s	    4224 B/op	       2 allocs/op
+BenchmarkFilterLines/short_64KiB_half-20       	    9172	     14915 ns/op	4393.97 MB/s	   16512 B/op	     258 allocs/op
+BenchmarkFilterLines/short_64KiB_half-20       	    8146	     14940 ns/op	4386.53 MB/s	   16512 B/op	     258 allocs/op
+BenchmarkFilterLines/short_64KiB_half-20       	    8082	     14750 ns/op	4443.11 MB/s	   16512 B/op	     258 allocs/op
+BenchmarkFilterLines/short_1MiB_half-20        	     513	    235189 ns/op	4458.45 MB/s	  200832 B/op	    4098 allocs/op
+BenchmarkFilterLines/short_1MiB_half-20        	     512	    237607 ns/op	4413.06 MB/s	  200832 B/op	    4098 allocs/op
+BenchmarkFilterLines/short_1MiB_half-20        	     498	    237882 ns/op	4407.96 MB/s	  200832 B/op	    4098 allocs/op
+BenchmarkFilterLines/long_64KiB_half-20        	   23298	      5099 ns/op	12852.41 MB/s	   17856 B/op	       7 allocs/op
+BenchmarkFilterLines/long_64KiB_half-20        	   25213	      8190 ns/op	8001.91 MB/s	   17856 B/op	       7 allocs/op
+BenchmarkFilterLines/long_64KiB_half-20        	   21493	      6223 ns/op	10531.88 MB/s	   17856 B/op	       7 allocs/op
+BenchmarkFilterLines/long_1MiB_half-20         	    2510	     49006 ns/op	21397.06 MB/s	   20736 B/op	      67 allocs/op
+BenchmarkFilterLines/long_1MiB_half-20         	    2718	     46881 ns/op	22366.63 MB/s	   20736 B/op	      67 allocs/op
+BenchmarkFilterLines/long_1MiB_half-20         	    2697	     47570 ns/op	22042.99 MB/s	   20736 B/op	      67 allocs/op
+BenchmarkCopyStreamPaths/WriterTo-20           	19150056	         6.389 ns/op	164112974.14 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/WriterTo-20           	19282993	         6.378 ns/op	164397562.68 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/WriterTo-20           	19035532	         6.468 ns/op	162116607.46 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/ReaderFrom-20         	   14340	      8263 ns/op	126894.82 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/ReaderFrom-20         	   14690	      8266 ns/op	126857.90 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/ReaderFrom-20         	   14450	      8308 ns/op	126209.76 MB/s	       0 B/op	       0 allocs/op
+BenchmarkCopyStreamPaths/generic_buffer-20     	    4180	     24060 ns/op	43581.24 MB/s	   32768 B/op	       1 allocs/op
+BenchmarkCopyStreamPaths/generic_buffer-20     	    5713	     20830 ns/op	50338.94 MB/s	   32768 B/op	       1 allocs/op
+BenchmarkCopyStreamPaths/generic_buffer-20     	    5397	     20938 ns/op	50079.64 MB/s	   32768 B/op	       1 allocs/op
+PASS
+ok  	example.com/streamgrep	3.889s

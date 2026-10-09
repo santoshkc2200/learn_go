@@ -1,0 +1,138 @@
+File: runner.test.exe
+Build ID: C:\Users\user\AppData\Local\Packages\sandbox.{004ea2ec-3edd-40b6-95fb-40cae72e26f2}\AC\Temp\go-build125353670\b001\runner.test.exe2026-10-09 12:18:30.8372738 +0900 JST
+Type: cpu
+Time: 2026-10-09 12:18:30 JST
+Duration: 572.42ms, Total samples = 1.14s (199.16%)
+Showing nodes accounting for 1.14s, 100% of 1.14s total
+      flat  flat%   sum%        cum   cum%
+     0.63s 55.26% 55.26%      0.63s 55.26%  crypto/internal/fips140/sha256.blockSHANI
+     0.07s  6.14% 61.40%      0.07s  6.14%  runtime.semawakeup
+     0.06s  5.26% 66.67%      0.06s  5.26%  runtime.procyieldAsm
+     0.06s  5.26% 71.93%      0.06s  5.26%  runtime.semasleep
+     0.06s  5.26% 77.19%      0.10s  8.77%  runtime.stealWork
+     0.03s  2.63% 79.82%      0.03s  2.63%  runtime.unlock2
+     0.02s  1.75% 81.58%      0.02s  1.75%  runtime.casgstatus
+     0.02s  1.75% 83.33%      0.12s 10.53%  runtime.chanrecv
+     0.02s  1.75% 85.09%      0.14s 12.28%  runtime.lock2
+     0.02s  1.75% 86.84%      0.02s  1.75%  runtime.osyield.func1
+     0.02s  1.75% 88.60%      0.02s  1.75%  runtime.pidleput
+     0.01s  0.88% 89.47%      0.01s  0.88%  crypto/internal/fips140/sha256.New (inline)
+     0.01s  0.88% 90.35%      0.65s 57.02%  example.com/jobrunner/internal/runner.BenchmarkBatch.func1.1
+     0.01s  0.88% 91.23%      0.01s  0.88%  runtime.(*gcControllerState).releaseNextGCMarkWorker
+     0.01s  0.88% 92.11%      0.01s  0.88%  runtime.(*guintptr).cas (inline)
+     0.01s  0.88% 92.98%      0.01s  0.88%  runtime.(*mspan).moveInlineMarks
+     0.01s  0.88% 93.86%      0.01s  0.88%  runtime.(*timers).check
+     0.01s  0.88% 94.74%      0.01s  0.88%  runtime.(*waitq).dequeue (inline)
+     0.01s  0.88% 95.61%      0.01s  0.88%  runtime.(*waitq).enqueue (inline)
+     0.01s  0.88% 96.49%      0.01s  0.88%  runtime.memclrNoHeapPointers
+     0.01s  0.88% 97.37%      0.01s  0.88%  runtime.newproc
+     0.01s  0.88% 98.25%      0.03s  2.63%  runtime.runqsteal
+     0.01s  0.88% 99.12%      0.01s  0.88%  runtime.sysUsedOS
+     0.01s  0.88%   100%      0.01s  0.88%  runtime.traceEnabled (inline)
+         0     0%   100%      0.03s  2.63%  _.goready.func1
+         0     0%   100%      0.01s  0.88%  crypto/internal/fips140/sha256.(*Digest).Sum
+         0     0%   100%      0.63s 55.26%  crypto/internal/fips140/sha256.(*Digest).Write
+         0     0%   100%      0.01s  0.88%  crypto/internal/fips140/sha256.(*Digest).checkSum
+         0     0%   100%      0.63s 55.26%  crypto/internal/fips140/sha256.block
+         0     0%   100%      0.01s  0.88%  crypto/sha256.New (inline)
+         0     0%   100%      0.64s 56.14%  crypto/sha256.Sum256
+         0     0%   100%      0.05s  4.39%  example.com/jobrunner/internal/runner.BenchmarkBatch.func1
+         0     0%   100%      0.65s 57.02%  example.com/jobrunner/internal/runner.JobFunc.Run
+         0     0%   100%      0.05s  4.39%  example.com/jobrunner/internal/runner.Run (inline)
+         0     0%   100%      0.05s  4.39%  example.com/jobrunner/internal/runner.RunWithOptions
+         0     0%   100%      0.77s 67.54%  example.com/jobrunner/internal/runner.RunWithOptions.func1
+         0     0%   100%      0.65s 57.02%  example.com/jobrunner/internal/runner.executeJob
+         0     0%   100%      0.01s  0.88%  runtime.(*mheap).alloc.func1
+         0     0%   100%      0.01s  0.88%  runtime.(*mheap).allocSpan
+         0     0%   100%      0.01s  0.88%  runtime.(*sweepLocked).sweep
+         0     0%   100%      0.03s  2.63%  runtime.bgsweep
+         0     0%   100%      0.12s 10.53%  runtime.chanrecv2
+         0     0%   100%      0.19s 16.67%  runtime.findRunnable
+         0     0%   100%      0.02s  1.75%  runtime.freeDeadSpanSPMCs
+         0     0%   100%      0.02s  1.75%  runtime.goexit0
+         0     0%   100%      0.01s  0.88%  runtime.goready (inline)
+         0     0%   100%      0.14s 12.28%  runtime.lock (inline)
+         0     0%   100%      0.14s 12.28%  runtime.lockWithRank (inline)
+         0     0%   100%      0.01s  0.88%  runtime.makeslice
+         0     0%   100%      0.01s  0.88%  runtime.mallocgc
+         0     0%   100%      0.01s  0.88%  runtime.mallocgcSmallScanHeader
+         0     0%   100%      0.25s 21.93%  runtime.mcall
+         0     0%   100%      0.01s  0.88%  runtime.newproc.func1
+         0     0%   100%      0.07s  6.14%  runtime.notewakeup
+         0     0%   100%      0.02s  1.75%  runtime.osyield (inline)
+         0     0%   100%      0.23s 20.18%  runtime.park_m
+         0     0%   100%      0.06s  5.26%  runtime.procyield (inline)
+         0     0%   100%      0.03s  2.63%  runtime.ready
+         0     0%   100%      0.03s  2.63%  runtime.resetspinning
+         0     0%   100%      0.01s  0.88%  runtime.runSafePointFn
+         0     0%   100%      0.02s  1.75%  runtime.runqgrab
+         0     0%   100%      0.01s  0.88%  runtime.runqput
+         0     0%   100%      0.23s 20.18%  runtime.schedule
+         0     0%   100%      0.03s  2.63%  runtime.selectgo
+         0     0%   100%      0.01s  0.88%  runtime.selectgo.func3
+         0     0%   100%      0.01s  0.88%  runtime.sellock
+         0     0%   100%      0.01s  0.88%  runtime.selunlock
+         0     0%   100%      0.02s  1.75%  runtime.send
+         0     0%   100%      0.06s  5.26%  runtime.startm
+         0     0%   100%      0.03s  2.63%  runtime.stopm
+         0     0%   100%      0.01s  0.88%  runtime.sweepone
+         0     0%   100%      0.01s  0.88%  runtime.sysUsed (inline)
+         0     0%   100%      0.05s  4.39%  runtime.systemstack
+         0     0%   100%      0.03s  2.63%  runtime.unlock (inline)
+         0     0%   100%      0.03s  2.63%  runtime.unlockWithRank (inline)
+         0     0%   100%      0.06s  5.26%  runtime.wakep
+         0     0%   100%      0.05s  4.39%  testing.(*B).run1.func1
+         0     0%   100%      0.05s  4.39%  testing.(*B).runN
+File: runner.test.exe
+Build ID: C:\Users\user\AppData\Local\Packages\sandbox.{004ea2ec-3edd-40b6-95fb-40cae72e26f2}\AC\Temp\go-build125353670\b001\runner.test.exe2026-10-09 12:18:30.8372738 +0900 JST
+Type: alloc_space
+Time: 2026-10-09 12:18:31 JST
+Showing nodes accounting for 31428.13kB, 100% of 31428.13kB total
+      flat  flat%   sum%        cum   cum%
+24626.59kB 78.36% 78.36% 24626.59kB 78.36%  example.com/jobrunner/internal/runner.RunWithOptions
+ 2561.91kB  8.15% 86.51%  2561.91kB  8.15%  runtime.mallocgc
+ 1536.16kB  4.89% 91.40%  1536.16kB  4.89%  example.com/jobrunner/internal/runner.RunWithOptions.func1
+ 1024.05kB  3.26% 94.66%  1024.05kB  3.26%  testing.(*B).ResetTimer
+  655.29kB  2.09% 96.74%   655.29kB  2.09%  compress/flate.NewWriter (inline)
+  512.08kB  1.63% 98.37%   512.08kB  1.63%  compress/gzip.NewWriterLevel
+  512.05kB  1.63%   100%   512.05kB  1.63%  os.newFileStatFromWin32FileAttributeData (inline)
+         0     0%   100%   655.29kB  2.09%  compress/gzip.(*Writer).Write
+         0     0%   100% 24626.59kB 78.36%  example.com/jobrunner/internal/runner.BenchmarkBatch.func1
+         0     0%   100% 24626.59kB 78.36%  example.com/jobrunner/internal/runner.Run (inline)
+         0     0%   100%   512.05kB  1.63%  os.Stat
+         0     0%   100%   512.05kB  1.63%  os.stat
+         0     0%   100%   512.05kB  1.63%  os.statNolog (inline)
+         0     0%   100%  1024.11kB  3.26%  runtime.acquireSudog
+         0     0%   100%  1025.56kB  3.26%  runtime.allocm
+         0     0%   100%  1024.11kB  3.26%  runtime.gcBgMarkWorker
+         0     0%   100%  1024.11kB  3.26%  runtime.gcMarkDone
+         0     0%   100%   512.56kB  1.63%  runtime.mProfStackInit (inline)
+         0     0%   100%   512.56kB  1.63%  runtime.main.func1
+         0     0%   100%   512.56kB  1.63%  runtime.makeProfStackFP (inline)
+         0     0%   100%   512.56kB  1.63%  runtime.makeslice
+         0     0%   100%   512.23kB  1.63%  runtime.malg
+         0     0%   100%   512.56kB  1.63%  runtime.mcommoninit
+         0     0%   100%      513kB  1.63%  runtime.mstart
+         0     0%   100%      513kB  1.63%  runtime.mstart0
+         0     0%   100%      513kB  1.63%  runtime.mstart1
+         0     0%   100%  1025.56kB  3.26%  runtime.newm
+         0     0%   100%  2049.34kB  6.52%  runtime.newobject
+         0     0%   100%   512.23kB  1.63%  runtime.newproc.func1
+         0     0%   100%   512.23kB  1.63%  runtime.newproc1
+         0     0%   100%      513kB  1.63%  runtime.resetspinning
+         0     0%   100%      513kB  1.63%  runtime.schedule
+         0     0%   100%  1024.11kB  3.26%  runtime.semacquire (inline)
+         0     0%   100%  1024.11kB  3.26%  runtime.semacquire1
+         0     0%   100%      513kB  1.63%  runtime.startm
+         0     0%   100%  1024.80kB  3.26%  runtime.systemstack
+         0     0%   100%      513kB  1.63%  runtime.wakep
+         0     0%   100%   655.29kB  2.09%  runtime/pprof.(*profileBuilder).appendLocsForStack
+         0     0%   100%   655.29kB  2.09%  runtime/pprof.(*profileBuilder).build
+         0     0%   100%   655.29kB  2.09%  runtime/pprof.(*profileBuilder).emitLocation
+         0     0%   100%   655.29kB  2.09%  runtime/pprof.(*profileBuilder).flush
+         0     0%   100%   512.05kB  1.63%  runtime/pprof.(*profileBuilder).readMapping
+         0     0%   100%  1024.13kB  3.26%  runtime/pprof.newProfileBuilder
+         0     0%   100%   512.05kB  1.63%  runtime/pprof.peBuildID
+         0     0%   100%  1679.43kB  5.34%  runtime/pprof.profileWriter
+         0     0%   100% 25650.64kB 81.62%  testing.(*B).run1.func1
+         0     0%   100% 25650.64kB 81.62%  testing.(*B).runN
