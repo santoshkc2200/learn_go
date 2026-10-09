@@ -194,6 +194,30 @@ try {
 } catch { [int]$_.Exception.Response.StatusCode } # 413: 13 + 16372 = 16385 bytes
 ```
 
+On macOS (zsh or bash):
+
+```sh
+base='http://127.0.0.1:8080'
+
+curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$base/tasks" \
+  -H 'Content-Type: application/json' -d '{"title":"   "}'
+curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$base/tasks" \
+  -H 'Content-Type: application/json' -d '{"title":"x","status":"done"}'
+curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$base/tasks" \
+  -H 'Content-Type: text/plain' -d '{"title":"x"}'
+curl -sS -o /dev/null -w '%{http_code}\n' "$base/tasks/0"
+curl -sS -o /dev/null -w '%{http_code}\n' "$base/tasks/9223372036854775807"
+curl -sS -o /dev/null -w '%{http_code}\n' "$base/tasks?limit=10"
+
+{ printf '%s' '{"title":"x"}'; printf '%16372s' ''; } |
+  curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$base/tasks" \
+    -H 'Content-Type: application/json' --data-binary @-
+```
+
+The requests print statuses 400, 400, 415, 400, 404 (unless that ID exists),
+400, and 413, respectively. curl prints HTTP error statuses here without treating
+them as shell failures.
+
 Internal storage errors produce sanitized 500 JSON. The real cause goes to
 server diagnostics, not the response. TestStorageFailureSanitized injects a
 private error and checks both channels without damaging a real database.
@@ -202,7 +226,9 @@ private error and checks both channels without damaging a real database.
 
 Run all checks from README. Focused exploration:
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -count=1 ./internal/tasks -v
 go test -count=1 ./internal/store -v
 go test -count=1 ./internal/httpapi -v

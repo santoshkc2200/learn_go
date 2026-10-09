@@ -28,6 +28,15 @@ go test -run TestFilterLines -v
 go test -v ./...
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/streamgrep
+printf '%s\n' 'INFO ready' 'ERROR failed' 'INFO done' | go run .
+go test -run TestFilterLines -v
+go test -v ./...
+```
+
 The executable prints all three lines because its substring is empty. The
 matching tests call `filterLines` with `"ERROR"` and check that only matching
 lines are written. PowerShell supplies encoded text and line endings; the filter

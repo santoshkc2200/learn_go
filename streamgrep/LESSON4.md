@@ -19,6 +19,14 @@ go test -run TestFailure -v
 go test -v ./...
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/streamgrep
+go test -run TestFailure -v
+go test -v ./...
+```
+
 Read in this order:
 
 1. `limitedWriter` and its `Write` method: how a partial write is simulated.
@@ -128,6 +136,13 @@ deterministic stream failures rather than race or goroutine-leak exercises.
 
 ```powershell
 "INFO ready`nERROR failed" | go run . -contains ERROR
+go run . -h
+```
+
+On macOS (zsh or bash):
+
+```sh
+printf '%s\n' 'INFO ready' 'ERROR failed' | go run . -contains ERROR
 go run . -h
 ```
 

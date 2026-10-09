@@ -10,6 +10,13 @@ Set-Location C:\Users\user\personal\dev\go\streamgrep
 "INFO ready`r`nERROR failed`r`nINFO done" | go run . -contains ERROR
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/streamgrep
+printf '%s\n' 'INFO ready' 'ERROR failed' 'INFO done' | go run . -contains ERROR
+```
+
 Expected output:
 
 ```text
@@ -37,6 +44,16 @@ go run . -h
 go run . --help
 ```
 
+On macOS (zsh or bash):
+
+```sh
+printf '%s\n' 'ERROR failed' 'ERROR retry' | go run . -contains "ERROR failed"
+printf '%s\n' 'INFO ready' 'ERROR failed' | go run . -contains=ERROR
+printf '%s\n' 'INFO ready' 'ERROR failed' | go run . --contains ERROR
+go run . -h
+go run . --help
+```
+
 The first example emits only `ERROR failed`. The shell groups quoted text into
 one argument. Go's standard `flag` package accepts a separate string value or
 an equals value, and either one or two leading hyphens. `-h` and `-help` (also
@@ -48,6 +65,13 @@ To read a file with Windows redirection, build and invoke through `cmd`:
 ```powershell
 go build -o streamgrep.exe .
 cmd /c ".\streamgrep.exe -contains ERROR < application.log"
+```
+
+On macOS (zsh or bash):
+
+```sh
+go build -o streamgrep .
+./streamgrep -contains ERROR < application.log
 ```
 
 Create `application.log` first. The shell opens it; the program has no file-name
@@ -86,6 +110,13 @@ Use the built executable when inspecting its actual process status:
 $LASTEXITCODE
 ```
 
+On macOS (zsh or bash):
+
+```sh
+./streamgrep -bogus
+echo $?
+```
+
 The result is `2`. By contrast, `go run . -bogus` reports `exit status 2` but the
 Go runner itself returns status `1` to the shell. This is a wrapper distinction,
 not a different exit-code policy in `streamgrep`.
@@ -95,7 +126,9 @@ still returns the status selected for the request or failure.
 
 ## Test and experiment
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -run TestCLI -v
 go test -v ./...
 go vet ./...

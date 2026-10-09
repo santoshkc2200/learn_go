@@ -13,6 +13,15 @@ go run . -workers 2 -jobs 6 -duration 200ms -timeout 50ms
 go test ./internal/runner -run 'TestJobDeadline|TestCancellationCause|TestRunWaits' -v
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go run . -workers 1 -jobs 3 -duration 100ms -job-timeout 20ms -timeout 2s
+go run . -workers 2 -jobs 6 -duration 200ms -timeout 50ms
+go test ./internal/runner -run 'TestJobDeadline|TestCancellationCause|TestRunWaits' -v
+```
+
 The first command cancels each started job's child context, but continues the
 batch. All three outcomes are `canceled (started)` and the exit status is 1.
 The second command cancels the parent: unstarted jobs are canceled too. Stdout
@@ -42,7 +51,9 @@ that job finishes, even on success before the deadline.
 `main` uses signal.NotifyContext with os.Interrupt. Run a long batch and press
 Ctrl+C:
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go run . -jobs 20 -duration 1s -timeout 1m
 ```
 

@@ -18,6 +18,13 @@ Set-Location C:\Users\user\personal\dev\go\streamgrep
 'hello streaming Go' | go run .
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/streamgrep
+printf '%s\n' 'hello streaming Go' | go run .
+```
+
 Expected visible output:
 
 ```text
@@ -40,10 +47,18 @@ go build -o streamgrep.exe .
 cmd /c ".\streamgrep.exe < input.bin > output.bin"
 ```
 
+On macOS (zsh or bash):
+
+```sh
+go build -o streamgrep .
+./streamgrep < input.bin > output.bin
+```
+
 Create `input.bin` first. A successful copy makes `output.bin` identical. Input
 files are opened by the shell, not by the Go program. Running without a pipe or
 redirect waits for terminal input; on a Windows console, Ctrl+Z followed by Enter
-typically signals EOF. A pipe signals EOF when its producer finishes.
+typically signals EOF. On macOS, Ctrl+D on an empty line signals EOF.
+A pipe signals EOF when its producer finishes.
 
 ## Read the code in this order
 
@@ -76,7 +91,9 @@ so it does not always execute one identical buffering strategy.
 
 ## Run the tests
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -v ./...
 go test -run TestCopyStreamPartialReadFailure -v
 go test -run TestCopyStreamLargeGeneratedInput -v

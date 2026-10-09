@@ -10,6 +10,15 @@ go run . -stream -jobs 6 -duration 0 -fail-first 1 -attempts 2 -jitter
 go test ./internal/runner -run 'TestStream|TestAdmission|TestCancelAdmission' -v
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go run . -stream -workers 2 -jobs 8 -duration 20ms -interval 30ms
+go run . -stream -jobs 6 -duration 0 -fail-first 1 -attempts 2 -jitter
+go test ./internal/runner -run 'TestStream|TestAdmission|TestCancelAdmission' -v
+```
+
 Batch RunWithOptions stores all inputs/results and returns input order. Stream
 consumes jobs incrementally and emits completion order. Its input index still
 identifies which job produced a result, even when output order changes. Read

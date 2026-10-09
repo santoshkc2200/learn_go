@@ -14,6 +14,15 @@ go test -run '^$' -bench BenchmarkFilterLines -benchmem -benchtime=1s -count=5
 go test -run '^$' -bench BenchmarkCopyStreamPaths -benchmem -benchtime=1s -count=5
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/streamgrep
+go test ./...
+go test -run '^$' -bench BenchmarkFilterLines -benchmem -benchtime=1s -count=5
+go test -run '^$' -bench BenchmarkCopyStreamPaths -benchmem -benchtime=1s -count=5
+```
+
 `-run '^$'` skips ordinary tests for this measurement; it does not mean correctness
 has been checked. Run tests separately first. `-count` repeats the measurements.
 `-benchtime` gives each benchmark a measurement duration, not a fixed iteration
@@ -108,6 +117,14 @@ go tool pprof -top -alloc_space .\measurements\alloc-current.pprof
 go tool pprof -top -alloc_space .\measurements\alloc-before.pprof
 ```
 
+On macOS (zsh or bash):
+
+```sh
+go test -run '^$' -bench '^BenchmarkFilterLines$/^short_1MiB_half$' -benchtime=3s -memprofile ./measurements/alloc-current.pprof
+go tool pprof -top -alloc_space ./measurements/alloc-current.pprof
+go tool pprof -top -alloc_space ./measurements/alloc-before.pprof
+```
+
 Profiling adds overhead; keep its timings separate from unprofiled comparison
 runs. `alloc_space` reports cumulative sampled allocation during the run, not
 the process's live heap or peak memory. Profile attribution is sampled, so its
@@ -139,6 +156,13 @@ to read the installed toolchain's documentation.
 
 ```powershell
 "INFO ready`nERROR failed" | go run . -contains ERROR
+go run . -h
+```
+
+On macOS (zsh or bash):
+
+```sh
+printf '%s\n' 'INFO ready' 'ERROR failed' | go run . -contains ERROR
 go run . -h
 ```
 

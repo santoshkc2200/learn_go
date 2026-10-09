@@ -15,6 +15,18 @@ go test ./internal/runner -run 'TestStream|TestRepeatedCancellation' -count=20
 go test ./internal/runner -run '^$' -fuzz FuzzOptions -fuzztime 5s
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go test -count=1 ./...
+go vet ./...
+go build ./...
+go test -race -count=1 ./...
+go test ./internal/runner -run 'TestStream|TestRepeatedCancellation' -count=20
+go test ./internal/runner -run '^$' -fuzz FuzzOptions -fuzztime 5s
+```
+
 The race command was attempted here and failed because CGO is disabled. Run it
 with a supported target, CGO enabled and a compatible C compiler. No race pass
 is claimed. Passing the detector covers executed paths, not every possible input.
@@ -31,7 +43,9 @@ scheduling, so the property tests identities/shape rather than universal success
 
 ## Define the benchmark's operation
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$' -benchmem -benchtime 1s -count 5
 go test ./internal/runner -run '^$' -bench '^BenchmarkWaitingBatch$' -benchmem -benchtime 1s -count 5
 ```
@@ -53,7 +67,9 @@ optimization is introduced without a demonstrated problem and repeated baseline.
 
 ## Profiles and trace
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$/^cpu$/^workers_4$' -benchtime 2s -cpuprofile measurements/cpu.pprof -memprofile measurements/heap.pprof
 go test ./internal/runner -run '^$' -bench '^BenchmarkWaitingBatch$' -benchtime 1s -blockprofile measurements/block.pprof -blockprofilerate 1 -mutexprofile measurements/mutex.pprof -mutexprofilefraction 1
 go tool pprof -top measurements/cpu.pprof
@@ -99,7 +115,15 @@ Remove-Item Env:\GODEBUG
 go test ./internal/runner -gcflags='-m=1' -run '^$'
 ```
 
-Record any existing environment values before these exercises and restore them
+On macOS (zsh or bash), these assignments apply only to each command:
+
+```sh
+GOMAXPROCS=1 go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$' -benchmem -benchtime 200ms
+GODEBUG='schedtrace=1000,gctrace=1' go test ./internal/runner -run '^$' -bench '^BenchmarkBatch$' -benchtime 2s
+go test ./internal/runner -gcflags='-m=1' -run '^$'
+```
+
+For the PowerShell examples, record any existing environment values and restore them
 afterward; the example assumes the variables were initially unset. Escape analysis
 explains compiler choices; it is not a rule that every pointer must allocate.
 Goroutine stacks can grow, and heap objects become collectible after references

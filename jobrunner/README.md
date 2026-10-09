@@ -31,6 +31,20 @@ go vet ./...
 go build ./...
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go run . -workers 2 -jobs 6 -duration 100ms -timeout 2s
+go run . -jobs 3 -duration 100ms -job-timeout 20ms
+go run . -jobs 3 -duration 0 -fail-first 2 -attempts 3 -backoff 10ms
+go run . -stream -workers 2 -jobs 8 -duration 20ms -interval 30ms
+go run . -h
+go test -count=1 ./...
+go vet ./...
+go build ./...
+```
+
 The deadline demo intentionally exits with failure. Ctrl+C cancels a running
 command through the same context used by jobs. Batch output is input-ordered;
 streaming output is completion-ordered. Ordinary job errors permit unrelated

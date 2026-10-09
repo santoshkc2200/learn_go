@@ -7,7 +7,9 @@ GOMAXPROCS 20. These are sequential in-memory microbenchmarks using `io.Discard`
 
 From the module directory, both comparison batches used:
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -run '^$' -bench 'Benchmark(FilterLines|CopyStreamPaths)' -benchmem -benchtime=100ms -count=3
 ```
 

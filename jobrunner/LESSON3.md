@@ -10,6 +10,15 @@ go run . -jobs 1 -duration 0 -fail-first 5 -attempts 3 -backoff 10ms
 go test ./internal/runner -run 'TestRetries|TestCancellationDuringBackoff|TestRetryBudget|TestBackoff' -v
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go run . -jobs 3 -duration 0 -fail-first 2 -attempts 3 -backoff 10ms -max-backoff 40ms
+go run . -jobs 1 -duration 0 -fail-first 5 -attempts 3 -backoff 10ms
+go test ./internal/runner -run 'TestRetries|TestCancellationDuringBackoff|TestRetryBudget|TestBackoff' -v
+```
+
 The first command succeeds after three attempts per job. The second exhausts
 three attempts and returns 1 with a failed result retaining the last error.
 MaxAttempts counts the initial call, not just retries; zero in the Go API means

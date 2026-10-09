@@ -20,6 +20,14 @@ go run . -workers 2 -jobs 6 -duration 100ms -timeout 2s
 go run . -h
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/jobrunner
+go run . -workers 2 -jobs 6 -duration 100ms -timeout 2s
+go run . -h
+```
+
 The successful command prints:
 
 ```text
@@ -33,7 +41,9 @@ job 5: succeeded
 
 Now cancel the batch before the first jobs can finish:
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go run . -workers 2 -jobs 6 -duration 500ms -timeout 100ms
 ```
 
@@ -128,7 +138,9 @@ Cancellation may leave earlier successful outcomes alongside a batch error.
 
 ## Verify and experiment
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -count=1 ./...
 go test ./internal/runner -run ExampleRun -v
 go test ./internal/runner -run TestRunBoundedConcurrency -v

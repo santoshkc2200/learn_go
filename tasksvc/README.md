@@ -32,6 +32,13 @@ cd C:\Users\user\personal\dev\go\tasksvc
 go run ./cmd/tasksvc -db tasks.db
 ```
 
+On macOS (zsh or bash), adjust the path to your checkout location:
+
+```sh
+cd ~/personal/dev/go/tasksvc
+go run ./cmd/tasksvc -db tasks.db
+```
+
 In terminal 2:
 
 ```powershell
@@ -43,17 +50,32 @@ Invoke-RestMethod -Uri "$base/tasks/$($task.id)"
 Invoke-RestMethod -Uri "$base/tasks"
 ```
 
+On macOS (zsh or bash):
+
+```sh
+base='http://127.0.0.1:8080'
+task=$(curl -sS -X POST "$base/tasks" \
+  -H 'Content-Type: application/json' -d '{"title":"learn database/sql"}')
+printf '%s\n' "$task"
+printf 'Enter the numeric id from the POST response: '
+read -r task_id
+curl -sS "$base/tasks/$task_id"
+curl -sS "$base/tasks"
+```
+
 POST returns 201 with a generated ID, `pending` status and UTC timestamp. GET
 returns 200. List returns `{"tasks":[...]}` with at most the first 100 tasks,
 ordered by ID; an empty database returns `{"tasks":[]}`.
 
 Press Ctrl+C in terminal 1, restart with the same command, and repeat GET in
-terminal 2 using the saved `$task.id`. The row survives. The database path is
+terminal 2 using the saved `$task.id` (PowerShell) or `$task_id` (macOS). The row survives. The database path is
 relative to the server's working directory, not the client terminal.
 
 To use another loopback port/file:
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go run ./cmd/tasksvc -addr 127.0.0.1:8081 -db lesson1-experiment.db
 ```
 
@@ -64,7 +86,9 @@ endpoint exists in Lesson 1.
 
 ## Verify
 
-```powershell
+In PowerShell or macOS Terminal (zsh or bash):
+
+```sh
 go test -count=1 ./...
 go vet ./...
 go build ./...
